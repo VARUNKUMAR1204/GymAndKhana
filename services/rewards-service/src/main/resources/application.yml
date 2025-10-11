@@ -1,0 +1,43 @@
+
+server:
+  port: 8083
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: rewards-service
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: gymandkhana
+      username: admin
+      password: password123
+      authentication-database: admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.gymandkhana: DEBUG
+    org.springframework.data.mongodb: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: gymandkhana

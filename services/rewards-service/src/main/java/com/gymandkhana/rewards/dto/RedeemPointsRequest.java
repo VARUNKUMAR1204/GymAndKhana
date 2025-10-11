@@ -1,11 +1,9 @@
 package com.gymandkhana.rewards.dto;
 
-import com.gymandkhana.rewards.model.PointsType;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-public class AddPointsRequest {
+public class RedeemPointsRequest {
     @NotBlank(message = "User ID is required")
     private String userId;
 
@@ -14,9 +12,6 @@ public class AddPointsRequest {
 
     @NotBlank(message = "Reason is required")
     private String reason;
-
-    @NotNull(message = "Points type is required")
-    private PointsType type;
 
     // Getters and Setters
     public String getUserId() { return userId; }
@@ -27,7 +22,4 @@ public class AddPointsRequest {
 
     public String getReason() { return reason; }
     public void setReason(String reason) { this.reason = reason; }
-
-    public PointsType getType() { return type; }
-    public void setType(PointsType type) { this.type = type; }
 }
